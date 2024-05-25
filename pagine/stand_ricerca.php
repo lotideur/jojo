@@ -49,6 +49,7 @@
                 <div id="pb_banner__left">
                     <?php 
                         $stand_name=$_SESSION["stand_name"];
+                        
                         echo <<<EOD
                             <div>
                                 <img src='../immagini/stand_img_$stand_name.png' alt=''>
@@ -61,8 +62,9 @@
                 <div id="pb_banner__right">
                     <!-- <img src="../immagini/pb_logo.png" alt=""> -->
                     <h2>
-                        <?php 
-                            echo $stand_name;
+                        <?php
+                            $stand_name_spaces=str_replace("_", " ", $stand_name);
+                            echo $stand_name_spaces;
                         ?>
                     </h2>
                 </div>
