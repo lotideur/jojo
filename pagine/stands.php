@@ -3,6 +3,7 @@
 
 <?php
     $search_input_stand_name = "";
+    if (isset($_GET["stand_name"])) {$stand_name = $_GET["stand_name"];} else {$stand_name = "";}
 ?>
 
 <head>
