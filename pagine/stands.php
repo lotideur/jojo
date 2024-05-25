@@ -94,7 +94,6 @@
 
                 <div id="searched_stands">
                     <?php
-                        session_start();
                         if (isset($_GET["search_input_stand_name"])) {
                             require("../data/connessione_db.php");
                             $search_input_stand_name = $_GET["search_input_stand_name"];
@@ -117,16 +116,16 @@
                                 //     $copertina = $riga["copertina"];
                                 //     $nome = $riga["nome"];
                                 //     $cognome = $riga["cognome"];
+                
                                     echo <<<EOD
                                         <div class='searched_stand_card'>
-                                            <a href="stand_ricerca.php"><img src='../immagini/stand_img_$lc_stand_name.png' alt=''></a>
-                                            
+                                            <a href="stand_ricerca.php?nome=$stand_name"><img src='../immagini/stand_img_$lc_stand_name.png' alt=''></a>
+                                            <h2>$lc_stand_name</h2>
                                         </div>
                                     EOD;
-                                    
                                 }
                                 
-                                $_SESSION["stand_name"]=$lc_stand_name;
+                            
                                 // session_start();
                                 // $_SESSION["stand_name"] = $stand_name;
                                 // echo "<img src='../immagini/stand_".$stand_name.".png' alt=''>";

@@ -3,7 +3,26 @@
 
 <?php
     $search_input_stand_name = "";
-    session_start();
+?>
+
+<?php
+    if (!isset($_GET["nome"])) {
+        die("Errore! manca un parametro essenziale per il caricamento dello stand!");
+    } else {
+        $stand_name = $_GET["nome"];
+        require("../data/connessione_db.php");
+        $sql = "SELECT nome 
+                FROM stand
+                WHERE nome = '$stand_name'";
+        $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+        if ($ris->num_rows == 0) {
+            // decidere che cosa fare
+            die ("Stand non trovato!");
+        } else {
+            $riga = $ris->fetch_assoc();
+            $stand_name = $riga['nome'];
+        }
+    }
 ?>
 
 <head>
@@ -48,11 +67,11 @@
             <div id="pb_banner">
                 <div id="pb_banner__left">
                     <?php 
-                        $stand_name=$_SESSION["stand_name"];
-                        
+                        $stand_name_lc = strtolower($stand_name);
+                        $stand_name_lc = str_replace(" ", "_", $stand_name_lc);
                         echo <<<EOD
                             <div>
-                                <img src='../immagini/stand_img_$stand_name.png' alt=''>
+                                <img src='../immagini/stand_img_$stand_name_lc.png' alt=''>
                                             
                             </div>
                         EOD;
@@ -63,8 +82,7 @@
                     <!-- <img src="../immagini/pb_logo.png" alt=""> -->
                     <h2>
                         <?php
-                            $stand_name_spaces=str_replace("_", " ", $stand_name);
-                            echo $stand_name_spaces;
+                            echo $stand_name;
                         ?>
                     </h2>
                 </div>
@@ -83,80 +101,7 @@
             </div>
 
             <div id="search_engine">
-                <h2>Cerca uno stand!</h2>
-
-                <!-- <form method="get" action="#search_engine">
-                    <input type="text" name="search_input_stand_name" placeholder="Nome stand"><br/>
-                    <input type="submit" value="Cerca">
-                </form> -->
-
-
-                <form method="get" action="#search_engine">
-                    <table class="tab_input">
-                        <tr>
-                            <td><label for="stand_name"><h2>Nome Stand: </h2></label></td>
-                            <td><input type="text" id="stand_name" name="search_input_stand_name" value="<?php echo $stand_name ?>" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="user_name"><h2>Nome Portatore: </h2></label></td>
-                            <td><input type="text" id="user_name"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="submit" value="Cerca" id="search_input_submit"></td>
-                        </tr>
-                    </table>
-                </form>
-
-                <div id="searched_stands">
-                    <?php
-                    
-                        if (isset($_GET["search_input_stand_name"])) {
-                            require("../data/connessione_db.php");
-                            $search_input_stand_name = $_GET["search_input_stand_name"];
-
-                            $sql = "SELECT nome
-                                    FROM stand
-                                    WHERE nome LIKE '%$search_input_stand_name%'";
-
-                            $search_ris = $conn->query($sql) or die("<p>Query fallita!</p>");
-            
-                            if ($search_ris->num_rows == 0) {
-                                echo "<p>Stand non trovato.</p>";
-                                $conn->close();
-                            } else {
-                                foreach($search_ris as $riga){
-                                    $stand_name = $riga["nome"];
-                                    $lc_stand_name = strtolower($stand_name);
-                                    $lc_stand_name = str_replace(" ", "_", $lc_stand_name);
-                                //     $titolo = $riga["titolo"];
-                                //     $copertina = $riga["copertina"];
-                                //     $nome = $riga["nome"];
-                                //     $cognome = $riga["cognome"];
-                                    echo <<<EOD
-                                        <div class='searched_stand_card'>
-                                            <a href="stand_ricerca.php"><img src='../immagini/stand_img_$lc_stand_name.png' alt=''></a>
-                                            
-                                        </div>
-                                    EOD;
-                                }
-                                // session_start();
-                                // $_SESSION["stand_name"] = $stand_name;
-                                // echo "<img src='../immagini/stand_".$stand_name.".png' alt=''>";
-                                // echo "../immagini/stand_'.$stand_name.'.png";
-                                
-                                
-                            //     $conn->close();
-                            //     header("location: pagine/home.php");
-                            }
-                        }
-
-                    ?>
-                </div>
-
-                <!-- <div class="searched_stand_card">
-                    <img src="../immagini/stand_img_anubis.png" alt="">
-                </div> -->
-
+                
             </div>
 
         </main>
