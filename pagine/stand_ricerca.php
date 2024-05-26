@@ -21,6 +21,7 @@
         } else {
             $riga = $ris->fetch_assoc();
             $stand_name = $riga['nome'];
+            $stand_user = $riga['nome'];
         }
     }
 ?>
@@ -71,8 +72,7 @@
                         $stand_name_lc = str_replace(" ", "_", $stand_name_lc);
                         echo <<<EOD
                             <div>
-                                <img src='../immagini/stand_img_$stand_name_lc.png' alt=''>
-                                            
+                                <img src='../immagini/stand_img_$stand_name_lc.png' alt=''>                
                             </div>
                         EOD;
                     ?>
@@ -90,18 +90,47 @@
 
             <div id="other_title">
                 <img src="../immagini/logo_english.png" alt="">
-                <h2>STANDS</h2>
+                <h2><?php echo $stand_name; ?></h2>
             </div>
 
             <div id="plot">
-                <h2>Un power system unico nel suo genere!</h2>
+                <h2>
+                    <?php
+                        $myfile = fopen("../testi/stand_$stand_name_lc.txt", "r") or die("Unable to open file!");
+                        echo fread($myfile,filesize("../testi/stand_$stand_name_lc.txt"));
+                        fclose($myfile);
+                    ?>
+                </h2>
                 
-                <p>Uno Stand (スタンド Sutando) è una manifestazione visiva dell'energia vitale (in altre parole, la manifestazione dell'anima di chi lo utilizza).</p>
-                <p>Generalmente si presenta come una figura sospesa sopra o vicino all'utilizzatore e possiede abilità superiori a quelle di un normale essere umano.</p>
+                <p>
+                    <?php
+                        $myfile = fopen("../testi/user_$stand_name_lc.txt", "r") or die("Unable to open file!");
+                        echo fread($myfile,filesize("../testi/user_$stand_name_lc.txt"));
+                        fclose($myfile);
+                    ?>
+                </p>
+                <!-- <p>Generalmente si presenta come una figura sospesa sopra o vicino all'utilizzatore e possiede abilità superiori a quelle di un normale essere umano.</p> -->
             </div>
 
             <div id="search_engine">
-                
+                <div>
+                    <?php 
+                        echo <<<EOD
+                            <div>
+                                <img src='../immagini/user_img_$stand_name_lc.png' alt=''>                
+                            </div>
+                        EOD;
+                    ?>
+                </div>
+                <div>
+                    <?php 
+                        echo <<<EOD
+                            <div>
+                                <img src='../immagini/video_$stand_name_lc.gif' alt=''>                
+                            </div>
+                        EOD;
+                    ?>
+                </div>
             </div>
 
         </main>
