@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Biblioteca-Login</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="contenuto">
-        <h1>Biblioteca Online</h1>
+        <h1>Stand</h1>
 		<h2>Pagina di Login</h2>
 
         <form action="" method="get">
@@ -79,5 +79,6 @@
             }
         ?>
     </div>
+    <div><a href="registrazione.php">se non hai un account registrati</a></div>
 </body>
 </html>

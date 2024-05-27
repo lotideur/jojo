@@ -22,6 +22,11 @@
                 <div class="logo">
                     <img src="immagini/logo.png" alt="">
                 </div>
+
+                <div class="profilo">
+                    <img src="immagini/avatar_default.jpg" alt="">
+                </div>
+
             </div>
 
             <div class="nav_stripe">
