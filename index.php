@@ -134,42 +134,42 @@
                 <img src="immagini/fade.png" alt="">
                 <h2>Scopri di più sulle parti!</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a href="pagine/part1.html">
+                    <div class="parts__cards__card"><a href="pagine/part1.php">
                             <img src="immagini/johnathan_mugshot_shadow.png" alt="">
                             <img src="immagini/jonathan_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">
                                 <p>Phantom Blood</p>
                             </div>
                         </a></div>
-                    <div class="parts__cards__card"><a href="pagine/part2.html">
+                    <div class="parts__cards__card"><a href="pagine/part2.php">
                             <img src="immagini/joseph_mugshot_shadow.png" alt="">
                             <img src="immagini/joseph_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">
                                 <p>Battle Tendency</p>
                             </div>
                         </a></div>
-                    <div class="parts__cards__card"><a href="pagine/part3.html">
+                    <div class="parts__cards__card"><a href="pagine/part3.php">
                             <img src="immagini/jotaro_mugshot_shadow.png" alt="">
                             <img src="immagini/jotaro_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">
                                 <p>Stardust Crusaders</p>
                             </div>
                         </a></div>
-                    <div class="parts__cards__card"><a href="pagine/part4.html">
+                    <div class="parts__cards__card"><a href="pagine/part4.php">
                             <img src="immagini/josuke_mugshot_shadow.png" alt="">
                             <img src="immagini/josuke_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">
                                 <p>Diamond is Unbreakable</p>
                             </div>
                         </a></div>
-                    <div class="parts__cards__card"><a href="pagine/part5.html">
+                    <div class="parts__cards__card"><a href="pagine/part5.php">
                             <img src="immagini/giorno_mugshot_shadow.png" alt="">
                             <img src="immagini/giorno_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">
                                 <p>Golden Wind</p>
                             </div>
                         </a></div>
-                    <div class="parts__cards__card"><a href="pagine/part6.html">
+                    <div class="parts__cards__card"><a href="pagine/part6.php">
                             <img src="immagini/jolyne_mugshot_shadow.png" alt="">
                             <img src="immagini/jolyne_mugshot1.png" alt="">
                             <div class="parts__cards__card__tag">

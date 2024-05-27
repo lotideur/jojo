@@ -23,7 +23,7 @@
                     <img src="../immagini/logo.png" alt="">
                 </div>
 
-                <div id="home_button"><a href="../index.html"><img src="../immagini/home.png" alt=""></a></div>
+                <div id="home_button"><a href="../index.php"><img src="../immagini/home.png" alt=""></a></div>
             </div>
 
             <div class="nav_stripe">
@@ -73,32 +73,32 @@
                 <img src="../immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a href="part1.html">
+                    <div class="parts__cards__card"><a href="part1.php">
                         <img src="../immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="../immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part2.html">
+                    <div class="parts__cards__card"><a href="part2.php">
                         <img src="../immagini/joseph_mugshot_shadow.png" alt="">
                         <img src="../immagini/joseph_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part3.html">
+                    <div class="parts__cards__card"><a href="part3.php">
                         <img src="../immagini/jotaro_mugshot_shadow.png" alt="">
                         <img src="../immagini/jotaro_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part4.html">
+                    <div class="parts__cards__card"><a href="part4.php">
                         <img src="../immagini/josuke_mugshot_shadow.png" alt="">
                         <img src="../immagini/josuke_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part5.html">
+                    <div class="parts__cards__card"><a href="part5.php">
                         <img src="../immagini/giorno_mugshot_shadow.png" alt="">
                         <img src="../immagini/giorno_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part6.html">
+                    <div class="parts__cards__card"><a href="part6.php">
                         <img src="../immagini/jolyne_mugshot_shadow.png" alt="">
                         <img src="../immagini/jolyne_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>

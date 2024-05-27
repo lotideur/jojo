@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part 1: Jojo's Bizzare Adventures</title>
-    <link rel="stylesheet" href="../css/part1_style.css">
+    <title>Part 6: Jojo's Bizzare Adventures</title>
+    <link rel="stylesheet" href="../css/part6_style.css">
 </head>
 
 <body>
@@ -23,11 +23,11 @@
                     <img src="../immagini/logo.png" alt="">
                 </div>
 
-                <div id="home_button"><a href="../index.html"><img src="../immagini/home.png" alt=""></a></div>
+                <div id="home_button"><a href="../index.php"><img src="../immagini/home.png" alt=""></a></div>
             </div>
 
             <div class="nav_stripe">
-                <div class="category_text"><p>Phantom Blood</p></div>
+                <div class="category_text"><p>Stone Ocean</p></div>
                 <!-- <div class="category_text"><p> > </p></div> -->
                 <!-- <div class="nav_button"><a><p>Jojo</p></a></div> -->
                 <!-- <div class="nav_button"><a><p>Trama</p></a></div> -->
@@ -41,31 +41,31 @@
         <main>
             <div id="pb_banner">
                 <div id="pb_banner__left">
-                    <img src="../immagini/phantomblood__banner_full.jpg" alt="">
+                    <img src="../immagini/so_banner.webp" alt="">
                     <img src="../immagini/fade_h.png" alt="">
                 </div>
                 <div id="pb_banner__right">
-                    <img src="../immagini/pb_logo.png" alt="">
-                    <h2>Phantom Blood</h2>
+                    <img src="../immagini/so_logo.png" alt="">
+                    <h2>Stone Ocean</h2>
                 </div>
             </div>
 
             <div id="other_title">
                 <img src="../immagini/logo_english.png" alt="">
-                <h2>Phantom Blood</h2>
+                <h2>Stone Ocean</h2>
             </div>
 
             <div id="plot">
-                <h2>Un uomo dall'animo nobile e dal passato oscuro...</h2>
+                <h2>Fuga dalla pietra nell'oceano...</h2>
                 
-                <p>Una rivalità tra due eredi di una proprietà, Jonathan e Dio, sfocia in una ricerca soprannaturale quando uno di loro diventa un vampiro.</p>
-                <p>L'altro, spinto dal lutto e dalla giustizia, decide di fermarlo.</p>
+                <p>La serie è ambientata negli Stati Uniti d'America e racconta le avventure di Jolyne, giovane figlia di Jotaro.</p>
+                <p>La ragazza rimane vittima di un complotto ordito da un vecchio alleato di Dio Brando, finendo rinchiusa in un carcere di massima sicurezza in Florida.</p>
             </div>
 
             <div id="tv">
                 <div id="tv__img">
                     <img src="../immagini/tv.webp" alt="">
-                    <video src="../video/JoJo's Bizarre Adventure_ Phantom Blood Trailer.mp4" controls></video>
+                    <video src="../video/stoneocean_trailer.mp4" controls></video>
                 </div>
             </div>
 
@@ -73,32 +73,32 @@
                 <img src="../immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a href="part1.html">
+                    <div class="parts__cards__card"><a href="part1.php">
                         <img src="../immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="../immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part2.html">
+                    <div class="parts__cards__card"><a href="part2.php">
                         <img src="../immagini/joseph_mugshot_shadow.png" alt="">
                         <img src="../immagini/joseph_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part3.html">
+                    <div class="parts__cards__card"><a href="part3.php">
                         <img src="../immagini/jotaro_mugshot_shadow.png" alt="">
                         <img src="../immagini/jotaro_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part4.html">
+                    <div class="parts__cards__card"><a href="part4.php">
                         <img src="../immagini/josuke_mugshot_shadow.png" alt="">
                         <img src="../immagini/josuke_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part5.html">
+                    <div class="parts__cards__card"><a href="part5.php">
                         <img src="../immagini/giorno_mugshot_shadow.png" alt="">
                         <img src="../immagini/giorno_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part6.html">
+                    <div class="parts__cards__card"><a href="part6.php">
                         <img src="../immagini/jolyne_mugshot_shadow.png" alt="">
                         <img src="../immagini/jolyne_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>

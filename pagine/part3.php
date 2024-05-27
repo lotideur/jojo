@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part 5: Jojo's Bizzare Adventures</title>
-    <link rel="stylesheet" href="../css/part5_style.css">
+    <title>Part 3: Jojo's Bizzare Adventures</title>
+    <link rel="stylesheet" href="../css/part3_style.css">
 </head>
 
 <body>
@@ -23,11 +23,11 @@
                     <img src="../immagini/logo.png" alt="">
                 </div>
 
-                <div id="home_button"><a href="../index.html"><img src="../immagini/home.png" alt=""></a></div>
+                <div id="home_button"><a href="../index.php"><img src="../immagini/home.png" alt=""></a></div>
             </div>
 
             <div class="nav_stripe">
-                <div class="category_text"><p>Golden Wind</p></div>
+                <div class="category_text"><p>Stardust Crusaders</p></div>
                 <!-- <div class="category_text"><p> > </p></div> -->
                 <!-- <div class="nav_button"><a><p>Jojo</p></a></div> -->
                 <!-- <div class="nav_button"><a><p>Trama</p></a></div> -->
@@ -41,31 +41,31 @@
         <main>
             <div id="pb_banner">
                 <div id="pb_banner__left">
-                    <img src="../immagini/gw_banner.jpg" alt="">
+                    <img src="../immagini/sc_banner.jpg" alt="">
                     <img src="../immagini/fade_h.png" alt="">
                 </div>
                 <div id="pb_banner__right">
-                    <img src="../immagini/gw_logo.png" alt="">
-                    <h2>Golden Wind</h2>
+                    <img src="../immagini/sc_logo.png" alt="">
+                    <h2>Stardust Crusaders</h2>
                 </div>
             </div>
 
             <div id="other_title">
                 <img src="../immagini/logo_english.png" alt="">
-                <h2>Golden Wind</h2>
+                <h2>Stardust Crusaders</h2>
             </div>
 
             <div id="plot">
-                <h2>Un vento nuovo soffia in Italia...</h2>
+                <h2>La maledizione dei Joestar non ha fine</h2>
                 
-                <p>La storia segue Giorno Giovanna, il figlio illegittimo del defunto Dio Brando.</p>
-                <p>Aspira a rovesciare il boss della mafia corrotta che governa la sua città natale di Napoli con l'aiuto di una squadra di compagni di Stand. utenti.</p>
+                <p>Dio prende possossesso dell corpo di Jonathan. Ritorna e sviluppa uno Stand, facendo sì che anche i Joestar ne sviluppino uno.</p>
+                <p>La madre di Jotaro non ce la fa fino al punto di quasi morire. Lui e gli Startdust Crusaders intraprendono un viaggio per trovare e sconfiggere Dio.</p>
             </div>
 
             <div id="tv">
                 <div id="tv__img">
                     <img src="../immagini/tv.webp" alt="">
-                    <video src="../video/Jojo's Bizarre Adventure_ Golden Wind - TRAILER OFFICIEL _ Crunchyroll.mp4" controls></video>
+                    <video src="../video/JoJo's Bizarre Adventure_ Stardust Crusaders Trailer.mp4" controls></video>
                 </div>
             </div>
 
@@ -73,32 +73,32 @@
                 <img src="../immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a href="part1.html">
+                    <div class="parts__cards__card"><a href="part1.php">
                         <img src="../immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="../immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part2.html">
+                    <div class="parts__cards__card"><a href="part2.php">
                         <img src="../immagini/joseph_mugshot_shadow.png" alt="">
                         <img src="../immagini/joseph_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part3.html">
+                    <div class="parts__cards__card"><a href="part3.php">
                         <img src="../immagini/jotaro_mugshot_shadow.png" alt="">
                         <img src="../immagini/jotaro_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part4.html">
+                    <div class="parts__cards__card"><a href="part4.php">
                         <img src="../immagini/josuke_mugshot_shadow.png" alt="">
                         <img src="../immagini/josuke_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part5.html">
+                    <div class="parts__cards__card"><a href="part5.php">
                         <img src="../immagini/giorno_mugshot_shadow.png" alt="">
                         <img src="../immagini/giorno_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="part6.html">
+                    <div class="parts__cards__card"><a href="part6.php">
                         <img src="../immagini/jolyne_mugshot_shadow.png" alt="">
                         <img src="../immagini/jolyne_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>

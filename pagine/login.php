@@ -53,7 +53,7 @@
                     $_SESSION["username"] = $username;
 
                     $conn->close();
-					header("location: quiz.php");
+					header("location: ../index.php");
                 }
 
                 /*
