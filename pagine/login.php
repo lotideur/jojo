@@ -50,11 +50,14 @@
                     $conn->close();
                 } else {
                     session_start();
+                    // $_SESSION["username"] = "";
                     $_SESSION["username"] = $username;
 
                     $conn->close();
 					header("location: ../index.php");
                 }
+                
+                
 
                 /*
                     // Versione con l'uso dell'hash

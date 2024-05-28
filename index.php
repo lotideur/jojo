@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    session_start();
+    if (isset($_SESSION["username"])) {$username = $_SESSION["username"];} else {$username = "";}
+    // $_SESSION["username"] = "";
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +19,7 @@
 
         <header>
             <div class="white_stripe">
+
                 <div class="logo">
                     <img src="immagini/logo_english.png" alt="">
                 </div>
@@ -23,8 +30,15 @@
                     <img src="immagini/logo.png" alt="">
                 </div>
 
-                <div class="profilo">
-                    <img src="immagini/avatar_default.jpg" alt="">
+                <div class="profile">
+                    <?php
+                        // $username = $_SESSION["username"];
+                        if ($username == ""){
+                            echo "<a href='pagine/login.php'><img src='immagini/avatar_default.png' class='profile_img' alt=''><img src='immagini/logout_icon.png' class='logout_icon--hide' alt=''></a>";
+                        }else{
+                            echo "<a href='pagine/logout.php'><img src='immagini/araki_outline.png' class='profile_img-logged' alt=''><img src='immagini/logout_icon.png' class='logout_icon' alt=''></a>";
+                        }
+                    ?>
                 </div>
 
             </div>
@@ -129,10 +143,6 @@
                     <!-- <p>Stand, un'entità generata psichicamente dal suo proprietario. Possiede abilità sovrumane che, a
                         seconda del portatore, possono essere brandite per il bene o per il male.</p> -->
                 </div>
-            </div>
-
-            <div>
-                <a href="pagine/login.php">login</a>
             </div>
 
             <div id="parts">

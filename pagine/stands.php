@@ -118,14 +118,16 @@
                                 //     $cognome = $riga["cognome"];
                 
                                     echo <<<EOD
-                                        <div class='searched_stand_card'>
+                                        <div class='searched_stands__card'>
                                             <a href="stand_ricerca.php?nome=$stand_name"><img src='../immagini/stand_img_$lc_stand_name.png' alt=''></a>
-                                            <h2>$lc_stand_name</h2>
+                                            <div class='searched_stands__card__tag'>
+                                                <h2>$stand_name</h2>
+                                            </div>
                                         </div>
                                     EOD;
                                 }
                                 
-                            
+                                
                                 // session_start();
                                 // $_SESSION["stand_name"] = $stand_name;
                                 // echo "<img src='../immagini/stand_".$stand_name.".png' alt=''>";
