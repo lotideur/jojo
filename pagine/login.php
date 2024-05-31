@@ -54,7 +54,11 @@
                     $_SESSION["username"] = $username;
 
                     $conn->close();
-					header("location: ../index.php");
+                    if($_SESSION["quiz"] == "quiz.php"){
+					    header("location: quiz.php");
+                    }else{
+                        header("location: ../index.php");
+                    }
                 }
                 
                 

@@ -63,8 +63,11 @@
                         <p>Stand</p>
                     </a></div>
                 <div class="nav_button"><a>
-                        <p>Parti</p>
+                        <p>Parti</p>            <!-- fez ricodati di risolvere-->
                     </a></div>
+                <div class="nav_button"><a>
+                    <p>Quiz</p>          
+                </a></div>
                 <div class="donate_button"><a href="https://web.spaggiari.eu/home/app/default/login.php">
                         <p>Dona</p><img src="immagini/heart.png" alt="">
                     </a></div>
@@ -143,6 +146,10 @@
                     <!-- <p>Stand, un'entità generata psichicamente dal suo proprietario. Possiede abilità sovrumane che, a
                         seconda del portatore, possono essere brandite per il bene o per il male.</p> -->
                 </div>
+            </div>
+
+            <div class="quiz">
+                <a href="pagine/quiz.php">vai al quiz</a>
             </div>
 
             <div id="parts">
