@@ -2,8 +2,8 @@
 <html lang="en">
 
 <?php
-    $search_input_stand_name = "";
-    if (isset($_GET["stand_name"])) {$stand_name = $_GET["stand_name"];} else {$stand_name = "";}
+    if (isset($_GET["search_input_stand_name"])) {$search_input_stand_name = $_GET["search_input_stand_name"];} else {$search_input_stand_name = "";}
+    if (isset($_GET["search_input_stand_user"])) {$search_input_stand_user = $_GET["search_input_stand_user"];} else {$search_input_stand_user = "";}
 ?>
 
 <head>
@@ -80,11 +80,11 @@
                     <table class="tab_input">
                         <tr>
                             <td><label for="stand_name"><h2>Nome Stand: </h2></label></td>
-                            <td><input type="text" id="stand_name" name="search_input_stand_name" value="<?php echo $stand_name ?>" required></td>
+                            <td><input type="text" id="stand_name" name="search_input_stand_name" value="<?php echo $search_input_stand_name ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="user_name"><h2>Nome Portatore: </h2></label></td>
-                            <td><input type="text" id="user_name"></td>
+                            <td><input type="text" id="user_name" name="search_input_stand_user" value="<?php echo $search_input_stand_user ?>"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" value="Cerca" id="search_input_submit"></td>
@@ -94,13 +94,15 @@
 
                 <div id="searched_stands">
                     <?php
-                        if (isset($_GET["search_input_stand_name"])) {
+                        if (isset($_GET["search_input_stand_name"]) and isset($_GET["search_input_stand_user"])) {
                             require("../data/connessione_db.php");
                             $search_input_stand_name = $_GET["search_input_stand_name"];
+                            $search_input_stand_user = $_GET["search_input_stand_user"];
 
-                            $sql = "SELECT nome
+                            $sql = "SELECT nome, portatore
                                     FROM stand
-                                    WHERE nome LIKE '%$search_input_stand_name%'";
+                                    WHERE nome LIKE '%$search_input_stand_name%'
+                                        AND portatore LIKE '%$search_input_stand_user%'";
 
                             $search_ris = $conn->query($sql) or die("<p>Query fallita!</p>");
                             
