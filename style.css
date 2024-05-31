@@ -581,6 +581,63 @@ main{overflow-x: hidden;}
     color: black;
 } */
 
+.quiz{
+    background: rgb(0, 149, 255);
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.quiz h2{
+    color: white;
+}
+
+.quiz a{
+    text-decoration: none;
+    color: white;
+}
+
+.quiz_box_button{
+    background-color: red;
+    /* color: white; */
+    transition: all 0.1s linear;
+    cursor: pointer;
+    width: 200px;
+    height: 70px;
+    right: 300px;
+    margin: auto;
+    
+
+    /* shape-margin: 0; */
+    border-radius: 15px;
+    /* position: absolute; */
+}
+
+.quiz_box_button a{
+    font-size: 15px;
+    width: 100%; height: 100%;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    /* color: white; */
+}
+.quiz_box_button a h3{
+    margin: 0;
+    transition: all 0.1s linear;
+    color: white;
+    font-size: 24px;
+}
+
+.quiz_box_button:hover{
+    background: blue;
+}
+
+
 @keyframes img_rot{
     0% {rotate: -5deg;}
     50% {rotate: 5deg;}

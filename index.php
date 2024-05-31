@@ -149,7 +149,10 @@
             </div>
 
             <div class="quiz">
-                <a href="pagine/quiz.php">vai al quiz</a>
+                <h2>Tenta il Quiz</h2>
+                <div class="quiz_box_button"><a href="pagine/quiz.php">
+                        <h3>QUIZ</h3>
+                </a></div>
             </div>
 
             <div id="parts">
