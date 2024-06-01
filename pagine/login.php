@@ -1,6 +1,6 @@
 <?php
-    if (isset($_GET["username"])) $username = $_GET["username"]; else $username = "";
-    if (isset($_GET["password"])) $password = $_GET["password"]; else $password = "";
+    if (isset($_POST["username"])) $username = $_POST["username"]; else $username = "";
+    if (isset($_POST["password"])) $password = $_POST["password"]; else $password = "";
 ?>
 
 <!DOCTYPE html>
@@ -8,84 +8,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/login_style.css">
     <title>Login</title>
 </head>
+
 <body>
-    <div class="contenuto">
-        <h1>Stand</h1>
-		<h2>Pagina di Login</h2>
+    <main>
+        <div class="background">
+            <img src="../immagini/banner2.webp" alt="">
+        </div>
 
-        <form action="" method="get">
-            <table class="tab_input">
-                <tr>
-                    <td><label for="username">Username: </label></td>
-                    <td><input type="text" name="username" id="username" value = "<?php echo $username ?>" required></td>
-                </tr>
-                <tr>
-                    <td><label for="password">Password: </label></td>
-                    <td><input type="password" name="password" id="password" required></td>
-                </tr>
-            </table>
-            <input type="submit" value="Accedi">
-        </form>
-        <?php
-            if (isset($_GET["username"]) and isset($_GET["password"])) {
-                require("../data/connessione_db.php");
+        <div class="panel">
+            <h1>Login</h1>
 
-                $myquery = "SELECT username, password 
-                            FROM user
-                            WHERE username='$username'
-                                AND password='$password'";
+            <form action="" method="post">
+                <table class="tab_input">
+                    <tr>
+                        <td><label for="username"><b>Username: </b></label></td>
+                        <td><input type="text" name="username" id="username" value = "<?php echo $username ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password"><b>Password: <b></label></td>
+                        <td><input type="password" name="password" id="password" required></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Accedi" class="submit">
+            </form>
 
-                $ris = $conn->query($myquery) or die("<p>Query fallita! ".$conn->error."</p>");
-
-                if ($ris->num_rows == 0) {
-                    echo <<<EOD
-                        <div>
-                            <p>Utente o password non trovati.</p> 
-                            <a href="registrazione.php">Se non sei registrato fallo</a>
-                        </div>
-                    EOD;
-                    $conn->close();
-                } else {
-                    session_start();
-                    // $_SESSION["username"] = "";
-                    $_SESSION["username"] = $username;
-
-                    $conn->close();
-                    if($_SESSION["quiz"] == "quiz.php"){
-					    header("location: quiz.php");
-                    }else{
-                        header("location: ../index.php");
-                    }
-                }
-                
-                
-
-                /*
-                    // Versione con l'uso dell'hash
+            <?php
+                if (isset($_POST["username"]) and isset($_POST["password"])) {
+                    require("../data/connessione_db.php");
 
                     $myquery = "SELECT username, password 
-                                FROM utenti
-                                WHERE username='$username'";
+                                FROM user
+                                WHERE username='$username'
+                                    AND password='$password'";
 
                     $ris = $conn->query($myquery) or die("<p>Query fallita! ".$conn->error."</p>");
 
-                    if($ris->num_rows == 0 or password_verify($password, $ris->fetch_assoc()['password'])){
-                        echo "<p>Utente non trovato o password errata</p>";
+                    if ($ris->num_rows == 0) {
+                        echo <<<EOD
+                            <div>
+                                <p>Utente o password non trovati.</p> 
+                            </div>
+                        EOD;
                         $conn->close();
-                    } 
-                    else {
-                        $_SESSION["username"]=$username;
-                                                
+                    } else {
+                        session_start();
+                        // $_SESSION["username"] = "";
+                        $_SESSION["username"] = $username;
+
                         $conn->close();
-                        header("location: pagine/home.php");
+                        if($_SESSION["quiz"] == "quiz.php"){
+                            header("location: quiz.php");
+                        }else{
+                            header("location: ../index.php");
+                        }
                     }
-                */
-            }
-        ?>
-    </div>
-    <div><a href="registrazione.php">se non hai un account registrati</a></div>
+                }
+            ?>
+            
+            <div class="reg"><hr><a href="registrazione.php">Non hai ancora un account?</a></div>
+
+            <a href="../index.php" class="home_button"><img src="../immagini/home2.png" alt=""></a>
+
+        </div>
+    </main>
+
+
 </body>
+
 </html>

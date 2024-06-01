@@ -1,0 +1,225 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial;
+    user-select: none;
+}
+@font-face {
+    font-family: "Fancy Cursive";
+    src: url(../fonts/Allura-Regular.ttf);
+}
+@font-face{
+    font-family: "Jojo";
+    src: url(../fonts/Naganoshi.otf);
+}@font-face{
+    font-family: "Regista";
+    src: url(../fonts/DemoRegista400.otf);
+}
+
+html{background: white;}
+
+/* TOGLIE IL FASTIDIOSO BORDO ATTORNO ALLA PAGINA */
+body{padding: 0;margin: 0;}
+
+.page_container{
+    max-width: 2000px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+/* BARRA BIANCA SUPERIORE CON LOGO */
+.white_stripe{
+    background: white;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.white_stripe .logo:first-child{
+    margin-left: 50px;
+}
+.logo{
+    margin: 0px 0px;
+    width: 80px;
+    height: 50px;
+    padding: 5px;
+    /* background: red; */
+}
+.logo img{height: 100%;}
+.white_stripe > p{
+    font-family: Jojo;
+    font-size: 30px;
+}
+
+/* BARRA GRIGIA CON BOTTONI NAVIGAZIONE */
+.nav_stripe{
+    background: rgb(40,40,40);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+
+    position: absolute;
+    top: 50px;
+    z-index: 99;
+}
+.nav_stripe--scroll{
+    position: fixed;
+    top: 0px;
+}
+.category_text{
+    padding: 0px 15px;
+    font-size: 15px;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_button{
+    height: 100%;
+    color: lightgray;
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+.nav_button--active{
+    color: rgb(0, 149, 255);
+    border-bottom: 3px solid rgb(0, 149, 255);
+}
+.nav_button a{
+    font-size: 15px;
+    width: 100%; height: 100%;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_button p{
+    margin: 0;
+    transition: all 0.1s linear;
+}
+.nav_button:hover p{
+    color: rgb(0, 149, 255);
+}
+
+
+.background{
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+    position: fixed;
+}
+.background img{
+    height: 150%;
+    left: -10%;
+    top: -5%;
+
+    position: fixed;
+
+    filter: blur(10px) brightness(30%);
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.panel{
+    background: rgb(20,20,20);
+    color: white;
+    width: 500px;
+    height: 450px;
+    /* position: absolute; */
+    margin: auto auto;
+    /* top: 500%; */
+    /* object-position: 50% 50%; */
+    text-align: center;
+    /* transform: translateY(200px); */
+    border-radius: 20px;
+    border: 3px solid white;
+	box-shadow: 0px 0px 40px black;
+
+    position: relative;
+}
+.panel form{
+    padding-top: 10px;
+}
+.panel form table{
+    margin: auto;
+    text-align: left;
+}
+.panel form input{
+    padding: 5px;
+    margin: 1px;
+}
+.panel a{
+    display: block;
+    position: absolute;
+    /* text-align: center; */
+    /* width: 100%; */
+    left: 50%; transform: translateX(-50%);
+    margin: auto;
+    bottom: 10px;
+    text-decoration: none;
+    /* margin-top: 50px; */
+    color: rgb(181, 181, 181);
+}
+.panel a:hover{color: white;}
+.panel hr{
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+}
+#username, #password, #conferma, #nome, #cognome, #telefono{
+    border-radius: 7px;
+}
+.panel .submit{
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.panel .home_button{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    /* margin: 0; */
+    right: -220px;
+    top: -380px;
+}
+.panel .home_button img{
+    width: 100%;
+}
+.panel .home_button img:hover{
+    filter: brightness(80%);
+}
+
+
+footer{
+    background: rgb(20,20,20);
+    color: gray;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid black;
+}
+footer p{
+    margin: 0;
+    font-size: 14px;
+} /* FARE COME BLENDER */

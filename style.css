@@ -21,7 +21,7 @@ html{background: white;}
 body{padding: 0;margin: 0;}
 
 .page_container{
-    max-width: 1600px;
+    max-width: 2000px;
     position: relative;
     overflow-x: hidden;
 }
@@ -214,7 +214,7 @@ header{
     width: 30%;
 }
 .donate_button:hover{
-    background: rgb(107, 193, 255);
+    background-color: rgb(0, 107, 183);
 }
 
 /* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "nav_stripe" contiene i "nav_button" (con l'hover) che
@@ -575,22 +575,29 @@ main{overflow-x: hidden;}
     width: 30%;
 }
 #stands__box__button:hover{
-    background: rgb(107, 193, 255);
+    background-color: rgb(0, 107, 183);
 }
 /* #stands__box__button:hover a{
     color: black;
 } */
 
 .quiz{
-    background: rgb(0, 149, 255);
+    background: rgb(10,10,10);
     height: 200px;
     position: relative;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+    
 }
 
 .quiz h2{
     color: white;
+    /* padding: 0 30px; */
+    margin: auto;
+
+    width: 50%;
 }
 
 .quiz a{
@@ -601,13 +608,13 @@ main{overflow-x: hidden;}
 .quiz_box_button{
     background-color: red;
     /* color: white; */
-    transition: all 0.1s linear;
+    transition: all 0.1s ease-in-out;
     cursor: pointer;
     width: 200px;
     height: 70px;
-    right: 300px;
-    margin: auto;
-    
+    /* right: 300px; */
+    margin: auto 0;
+    margin-right: 10%;
 
     /* shape-margin: 0; */
     border-radius: 15px;
@@ -628,13 +635,14 @@ main{overflow-x: hidden;}
 }
 .quiz_box_button a h3{
     margin: 0;
-    transition: all 0.1s linear;
+    /* transition: all 0.1s linear; */
     color: white;
     font-size: 24px;
 }
 
 .quiz_box_button:hover{
-    background: blue;
+    background: rgb(255, 54, 54);
+    transform: scale(1.1) rotate(3deg);
 }
 
 

@@ -366,6 +366,8 @@ header{
     overflow: hidden;
 
     cursor: pointer;
+    
+    border-radius: 20px;
 }
 .parts__cards__card a{
     display: block;

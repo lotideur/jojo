@@ -59,7 +59,7 @@
                 <img src="../immagini/logo_english.png" alt="">
                 <h2>STANDS</h2>
             </div>
-
+            
             <div id="plot">
                 <h2>Un power system unico nel suo genere!</h2>
                 

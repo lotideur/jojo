@@ -149,9 +149,9 @@
             </div>
 
             <div class="quiz">
-                <h2>Tenta il Quiz</h2>
+                <h2>Quanto sai di JoJo? Sei pronto a sfidare te stesso in un quiz inedito?</h2>
                 <div class="quiz_box_button"><a href="pagine/quiz.php">
-                        <h3>QUIZ</h3>
+                        <h3>Tenta il Quiz</h3>
                 </a></div>
             </div>
 
