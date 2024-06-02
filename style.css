@@ -59,17 +59,17 @@ header{
 }
 
 
-.profile{
+.account{
     position: absolute;
     right: 50px;
     width: 130px;
-    height: 90%;
+    height: 50px;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.profile a{
+.login{
     display: block;
     width: 100%; height: 85%;
     background-color: rgb(0, 149, 255);
@@ -83,7 +83,41 @@ header{
     justify-content: center;
     transition: all 0.1s linear;
 }
-.profile a b{
+.login b{
+    width: 50%;
+}
+.login_img{
+    width: 30%;
+    height: 70%;
+}
+.login_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.login:hover{
+    background-color: rgb(0, 107, 183);
+}
+
+.profile{
+    display: block;
+    width: 100%; height: 43px;
+    background-color: white;
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 8px;
+    text-align: center;
+    /* padding: 9%; */
+    text-decoration: none;
+    color: rgb(0, 149, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s linear;
+
+    position: relative;
+    z-index: 11;
+}
+.profile b{
     width: 50%;
 }
 .profile_img{
@@ -91,13 +125,74 @@ header{
     height: 70%;
 }
 .profile_img img{
-    width: 100%;
     height: 100%;
+    width: fit-content;
     object-fit: contain;
+    border-radius: 100px;
 }
-.profile a:hover{
-    background-color: rgb(0, 107, 183);
+.profile:hover{
+    background-color: rgb(0, 149, 255);
+    color: white;
 }
+.profile:hover .profile_img img{
+    box-shadow: 0 0 10px black;
+}
+
+.logout{
+    display: block;
+    width: 100%; height: 43px;
+    background-color: white;
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 8px;
+    text-align: center;
+    /* padding: 9%; */
+    text-decoration: none;
+    color: rgb(0, 149, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s linear;
+
+    position: absolute;
+    /* display: none; */
+    /* top: 43px; */
+    top: 3px;
+    z-index: 10;
+    /* padding-top: 10px; */
+}
+.logout b{
+    width: 50%;
+}
+.logout_img{
+    width: 30%;
+    height: 29px;
+}
+.logout_img img{
+    height: 100%;
+    width: fit-content;
+    object-fit: contain;
+    border-radius: 100px;
+}
+.logout:hover{
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+}
+.logout:hover .logout_img img{
+    box-shadow: 0 0 10px black;
+}
+
+.account:hover .logout{
+    /* display: none; */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    top: 37px;
+    height: 51px;
+    padding-top: 8px;
+    /* top: 40px; */
+}
+
+
 
 /* BARRA GRIGIA CON BOTTONI NAVIGAZIONE */
 .nav_stripe{
@@ -111,7 +206,7 @@ header{
 
     position: absolute;
     top: 50px;
-    z-index: 99;
+    z-index: 2;
 }
 .nav_stripe--scroll{
     position: fixed;

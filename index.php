@@ -30,20 +30,33 @@
                     <img src="immagini/logo.png" alt="">
                 </div>
 
-                <div class="profile">
-
-                    <a href="pagine/login.php">
-                        <b>Accedi</b>
-                        <div class="profile_img"><img src="immagini/login_icon.png" alt=""></div>
-                    </a>
+                <div class="account">
 
                     <?php
-                        // $username = $_SESSION["username"];
-                        // if ($username == ""){
-                        //     echo "<a href='pagine/login.php'><img src='immagini/avatar_default.png' class='profile_img' alt=''><img src='immagini/logout_icon.png' class='logout_icon--hide' alt=''></a>";
-                        // }else{
-                        //     echo "<a href='pagine/logout.php'><img src='immagini/araki_outline.png' class='profile_img-logged' alt=''><img src='immagini/logout_icon.png' class='logout_icon' alt=''></a>";
-                        // }
+                        if ($username == ""){
+                            
+                            echo <<<EOD
+                            <a href="pagine/login.php" class="login">
+                                 <b>Accedi</b>
+                                 <div class="login_img"><img src="immagini/login_icon.png" alt=""></div>
+                            </a>
+                            EOD;
+
+                        }else{
+                            
+                            echo <<<EOD
+                            <a href="#" class="profile">
+                                <div class="profile_img"><img src="immagini/avatar_default.png" alt=""></div>
+                                <b>$username</b>
+
+                                <a href="pagine/logout.php" class="logout">
+                                    <b>Logout</b>
+                                    <div class="logout_img"><img src="immagini/logout_icon2.png" alt=""></div>
+                                </a>
+                            </a>
+                            EOD;
+                            
+                        }
                     ?>
 
                 </div>
