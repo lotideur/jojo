@@ -31,14 +31,21 @@
                 </div>
 
                 <div class="profile">
+
+                    <a href="pagine/login.php">
+                        <b>Accedi</b>
+                        <div class="profile_img"><img src="immagini/login_icon.png" alt=""></div>
+                    </a>
+
                     <?php
                         // $username = $_SESSION["username"];
-                        if ($username == ""){
-                            echo "<a href='pagine/login.php'><img src='immagini/avatar_default.png' class='profile_img' alt=''><img src='immagini/logout_icon.png' class='logout_icon--hide' alt=''></a>";
-                        }else{
-                            echo "<a href='pagine/logout.php'><img src='immagini/araki_outline.png' class='profile_img-logged' alt=''><img src='immagini/logout_icon.png' class='logout_icon' alt=''></a>";
-                        }
+                        // if ($username == ""){
+                        //     echo "<a href='pagine/login.php'><img src='immagini/avatar_default.png' class='profile_img' alt=''><img src='immagini/logout_icon.png' class='logout_icon--hide' alt=''></a>";
+                        // }else{
+                        //     echo "<a href='pagine/logout.php'><img src='immagini/araki_outline.png' class='profile_img-logged' alt=''><img src='immagini/logout_icon.png' class='logout_icon' alt=''></a>";
+                        // }
                     ?>
+
                 </div>
 
             </div>

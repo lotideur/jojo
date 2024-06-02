@@ -184,6 +184,7 @@ main{
 }
 #username, #password, #conferma, #nome, #cognome, #telefono{
     border-radius: 7px;
+    outline: auto;
 }
 .panel .submit{
     font-weight: bold;
@@ -192,6 +193,11 @@ main{
     font-size: 16px;
     cursor: pointer;
     border-radius: 7px;
+    background: rgb(0, 149, 255);
+    border: 1px solid white;
+}
+.panel .submit:hover{
+    background-color: rgb(0, 107, 183);
 }
 
 .panel .home_button{
