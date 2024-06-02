@@ -85,9 +85,9 @@
                 <div class="nav_button"><a>
                         <p>Parti</p>            <!-- fez ricodati di risolvere-->
                     </a></div>
-                <div class="nav_button"><a>
+                <!-- <div class="nav_button"><a>
                     <p>Quiz</p>          
-                </a></div>
+                </a></div> -->
                 <div class="donate_button"><a href="https://web.spaggiari.eu/home/app/default/login.php">
                         <p>Dona</p><img src="immagini/heart.png" alt="">
                     </a></div>
@@ -232,7 +232,6 @@
         <footer>
             <p>Authors | F. Banani, L. Sambo</p>
         </footer>
-
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript">

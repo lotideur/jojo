@@ -152,7 +152,7 @@ header{
     align-items: center;
     justify-content: center;
     transition: all 0.1s linear;
-
+    
     position: absolute;
     /* display: none; */
     /* top: 43px; */
