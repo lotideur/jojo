@@ -59,8 +59,9 @@
                         $_SESSION["username"] = $username;
 
                         $conn->close();
-                        if($_SESSION["quiz"] == "quiz.php"){
-                            header("location: quiz.php");
+                        if (isset($_GET["redirect"])){
+                            $redirect = $_GET["redirect"];
+                            header("location: $redirect");
                         }else{
                             header("location: ../index.php");
                         }

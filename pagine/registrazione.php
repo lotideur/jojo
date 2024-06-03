@@ -4,8 +4,8 @@
     if(isset($_GET["conferma"])) $conferma = $_GET["conferma"];  else $conferma = "";
     if(isset($_GET["nome"])) $nome = $_GET["nome"];  else $nome = "";
     if(isset($_GET["cognome"])) $cognome = $_GET["cognome"];  else $cognome = "";
-    if(isset($_GET["telefono"])) $telefono = $_GET["telefono"];  else $telefono = "";
-    if(isset($_GET["quiz_result"])) $telefono = $_GET["quiz_result"];  else $quiz_result = "";
+    if(isset($_GET["email"])) $email = $_GET["email"];  else $email = "";
+    // if(isset($_GET["quiz_result"])) $quiz_result = $_GET["quiz_result"];  else $quiz_result = "";
 
 ?>
 
@@ -43,15 +43,15 @@
                     </tr>
                     <tr>
                         <td><label for="nome">Nome: </label></td>
-                        <td><input type="text" name="nome" id="nome" <?php echo "value = '$nome'" ?>></td>
+                        <td><input type="text" name="nome" id="nome" <?php echo "value = '$nome'" ?> required></td>
                     </tr>
                     <tr>
                         <td><label for="cognome">Cognome: </label></td>
                         <td><input type="text" name="cognome" id="cognome" <?php echo "value = '$cognome'" ?>></td>
                     </tr>
                     <tr>
-                        <td><label for="telefono">Telefono: </label></td>
-                        <td><input type="text" name="telefono" id="telefono" <?php echo "value = '$telefono'" ?>></td>
+                        <td><label for="email">Email: </label></td>
+                        <td><input type="text" name="email" id="email" <?php echo "value = '$email'" ?>></td>
                     </tr>
                 </table>
                 <input type="submit" value="Invia" class="submit">
@@ -77,15 +77,15 @@
                                 echo "Questo username è già stato usato";
                             } else {
 
-                                $myquery = "INSERT INTO user (username, password, nome, cognome, telefono)
-                                            VALUES ('$username', '$password', '$nome', '$cognome','$telefono')";
+                                $myquery = "INSERT INTO user (username, password, nome, cognome, email)
+                                            VALUES ('$username', '$password', '$nome', '$cognome','$email')";
                                 if ($conn->query($myquery) === true) {
                                     session_start();
                                     $_SESSION["username"]=$username;
                                     
                                     $conn->close();
 
-                                    echo "Registrazione effettuata con successo!<br>sarai ridirezionato alla home tra 5 secondi.";
+                                    echo "Registrazione effettuata con successo!<br>sarai ridirezionato alla home tra 5 secondi...";
                                     header('Refresh: 5; URL=../index.php');
 
                                 } else {
