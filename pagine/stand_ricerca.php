@@ -96,20 +96,20 @@
             <div id="plot">
                 <h2>
                     <?php
-                        $myfile = fopen("../testi/stand_$stand_name_lc.txt", "r") or die("Unable to open file!");
-                        echo fread($myfile,filesize("../testi/stand_$stand_name_lc.txt"));
-                        fclose($myfile);
+                        // $myfile = fopen("../testi/stand_$stand_name_lc.txt", "r") or die("Unable to open file!");
+                        // echo fread($myfile,filesize("../testi/stand_$stand_name_lc.txt"));
+                        // fclose($myfile);
                     ?>
                 </h2>
                 
                 <p>
                     <?php
-                        $myfile = fopen("../testi/user_$stand_name_lc.txt", "r") or die("Unable to open file!");
-                        echo fread($myfile,filesize("../testi/user_$stand_name_lc.txt"));
-                        fclose($myfile);
+                        // $myfile = fopen("../testi/user_$stand_name_lc.txt", "r") or die("Unable to open file!");
+                        // echo fread($myfile,filesize("../testi/user_$stand_name_lc.txt"));
+                        // fclose($myfile);
                     ?>
                 </p>
-                <!-- <p>Generalmente si presenta come una figura sospesa sopra o vicino all'utilizzatore e possiede abilità superiori a quelle di un normale essere umano.</p> -->
+             
             </div>
 
             <div id="search_engine">
