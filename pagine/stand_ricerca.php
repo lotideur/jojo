@@ -70,6 +70,8 @@
                     <?php 
                         $stand_name_lc = strtolower($stand_name);
                         $stand_name_lc = str_replace(" ", "_", $stand_name_lc);
+                        $stand_name_lc = str_replace("\'", "", $stand_name_lc);
+                        $stand_name_lc = str_replace("'", "", $stand_name_lc);
                         echo <<<EOD
                             <div>
                                 <img src='../immagini/stand_img_$stand_name_lc.png' alt=''>                
