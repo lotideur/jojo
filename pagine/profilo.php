@@ -114,11 +114,12 @@
     </header>
 
     <main>
-
         <?php
 
             if ($categoria == "dati_personali"){
                 require("profilo_dati_personali.php");
+            }elseif ($categoria == "stand_preferiti"){
+                require("profilo_preferiti.php");
             }elseif ($categoria == "logout"){
                 require("profilo_logout.php");
             }

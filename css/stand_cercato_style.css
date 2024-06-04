@@ -192,6 +192,7 @@ main p .img{
     /* background: linear-gradient(180deg, rgba(0,62,106,1) 0%, rgba(0,149,255,1) 100%); */
 
     height: 550px;
+    position: relative;
 }
 #tv__img{
     /* background: red; */
@@ -217,6 +218,45 @@ main p .img{
 }
 
 
+.bottone_preferiti{
+    display: block;
+    position: absolute;
+    right: 60px; top: 50%;
+
+    width: 250px;
+    height: 80px;
+    color: white;
+    text-decoration: none;
+    border: 5px solid white;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+
+    transition: all 0.1s;
+}
+.toadd{
+    background-color: rgb(23, 226, 23);
+}
+.todelete{
+    background-color: rgb(226, 23, 23);
+}
+.bottone_preferiti img{
+    height: 60%;
+    padding-right: 10px;
+    object-fit: contain;
+}
+.bottone_preferiti:hover{
+    /* background: rgb(2, 190, 2); */
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
 
 .gototop{
     position: fixed;

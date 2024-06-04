@@ -2,8 +2,9 @@
 <html lang="en">
 
 <?php
-    if (!isset($_GET["nome"])) {
-        die("Errore! manca un parametro essenziale per il caricamento dello stand!");
+    if (!isset($_GET["nome"])){
+        header("Location: stands.php");
+        // die("Errore! Manca un parametro essenziale per il caricamento dello stand!");
     } else {
         $stand_name = $_GET["nome"];
         require("../data/connessione_db.php");
@@ -20,13 +21,44 @@
             $stand_user = $riga['nome'];
         }
     }
+
+    session_start();
+    $username = $_SESSION["username"];
+
+    if ($username){
+        if (isset($_GET["add_to_favorites"])){
+            $sql = "INSERT INTO preferiti (username, stand)
+                    VALUES ('$username', '$stand_name')";
+            $conn->query($sql) or die("<p>Query fallita!".$conn->error."</p>");
+
+            $is_favorite = true;
+            header("Location: ?nome=$stand_name");
+
+        }elseif (isset($_GET["delete_from_favorites"])){
+            $sql = "DELETE FROM preferiti
+                    WHERE username = '$username' AND stand = '$stand_name'";
+            $conn->query($sql) or die("<p>Query fallita!".$conn->error."</p>");
+
+            $is_favorite = false;
+            // header("Location: ?nome=$stand_name");
+        }
+        else{
+            $sql = "SELECT username FROM preferiti WHERE username = '$username' AND stand = '$stand_name'";
+            $ris = $conn->query($sql) or die("<p>Query fallita!".$conn->error."</p>");
+            if ($ris->num_rows > 0){
+                $is_favorite = true;
+            }else{
+                $is_favorite = false;
+            }
+        }
+    }
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stands: Jojo's Bizzare Adventures</title>
-    <link rel="stylesheet" href="..\css\stand_ricerca_style.css">
+    <link rel="stylesheet" href="..\css\stand_cercato_style.css">
 </head>
 
 <body>
@@ -53,7 +85,6 @@
         </header>
 
 
-        <img src="" alt="">
         <main>
             <?php
                 $stand_name_apostrofo = str_replace("*","'",$stand_name);
@@ -63,7 +94,26 @@
 
                 echo "<h1><a href='#'>$stand_name_apostrofo</a></h1>";
 
-                echo <<<EOD
+                if ($username){
+                    $preferiti_txt = $is_favorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+                    $preferiti_link = $is_favorite ? "delete_from_favorites" : "add_to_favorites";
+                    $preferiti_style = $is_favorite ? "background-color: red;" : "background-color: rgb(23, 226, 23);";
+                    
+                    echo <<<EOD
+                        <div id="tv">
+                            <div id="tv__img">
+                                <img src="../immagini/tv.webp" alt="" class="television">
+                                <img src="../immagini/video_$stand_name_lowercase.gif" class="gif">
+                            </div>
+
+                            <a href="?nome=$stand_name&$preferiti_link=" class="bottone_preferiti" style='$preferiti_style'>
+                                <p>$preferiti_txt</p>
+                                <img src="../immagini/star_icon_full.png">    
+                            </a>
+                        </div>
+                    EOD;
+                }else{
+                    echo <<<EOD
                     <div id="tv">
                         <div id="tv__img">
                             <img src="../immagini/tv.webp" alt="" class="television">
@@ -71,7 +121,7 @@
                         </div>
                     </div>
                 EOD;
-
+                }
                 
                 echo "<img src='../immagini/stand_img_$stand_name_lowercase.png' class='f_r'>";
                 echo "<img src='../immagini/user_img_$stand_name_lowercase.png' class='f_l'>";
