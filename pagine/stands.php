@@ -134,7 +134,6 @@
                                                 <a href="stand_ricerca.php?nome=$stand_name"><img src='../immagini/stand_img_$stand_name_lowercase.png' alt=''></a>
                                                 <div class='searched_stands__card__tag'>
                                                     <h2>$stand_name_apostrofo</h2>
-                                                    <p>../immagini/stand_img_$stand_name_lowercase.png</p>
                                                 </div>
                                             </div>
                                         EOD;

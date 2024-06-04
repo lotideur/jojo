@@ -71,12 +71,12 @@
                                     FROM user
                                     WHERE username='$username'";
                             //echo $myquery;
-
+                            
                             $ris = $conn->query($myquery) or die("<p>Query fallita!</p>");
                             if ($ris->num_rows > 0) {
                                 echo "Questo username è già stato usato";
                             } else {
-
+                                
                                 $myquery = "INSERT INTO user (username, password, nome, cognome, email)
                                             VALUES ('$username', '$password', '$nome', '$cognome','$email')";
                                 if ($conn->query($myquery) === true) {

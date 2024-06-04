@@ -41,13 +41,15 @@
                                  <div class="login_img"><img src="immagini/login_icon.png" alt=""></div>
                             </a>
                             EOD;
-
+                        
                         }else{
+                            require("data/connessione_db.php");
+                            $nome = $conn->query("SELECT nome FROM user WHERE username = '$username'")->fetch_assoc()["nome"];
                             
                             echo <<<EOD
-                            <a href="#" class="profile">
+                            <a href="pagine\profilo.php" class="profile">
                                 <div class="profile_img"><img src="immagini/avatar_default.png" alt=""></div>
-                                <b>$username</b>
+                                <b>$nome</b>
 
                                 <a href="pagine/logout.php" class="logout">
                                     <b>Logout</b>
