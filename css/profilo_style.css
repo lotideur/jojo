@@ -230,6 +230,61 @@ header{
     background-color: rgb(74, 180, 255);
 }
 
+
+
+.logout{
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+
+    width: 600px;
+    height: 400px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    margin: auto;
+
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px black;
+}
+.logout__button{
+    display: block;
+    background-color: red;
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 300px; height: 100px;
+    border: 5px solid red;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: all 0.1s;
+}
+.logout__button p{
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    text-align: center;
+}
+.logout__button img{
+    display: block;
+    width: 40%;
+    height: 80%;
+    object-fit: contain;
+}
+.logout__button:hover{
+    background-color: rgb(255, 54, 54);
+    border: 5px solid rgb(255, 54, 54);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
 footer{
     background: rgb(20,20,20);
     color: gray;
