@@ -2,10 +2,6 @@
 <html lang="en">
 
 <?php
-    $search_input_stand_name = "";
-?>
-
-<?php
     if (!isset($_GET["nome"])) {
         die("Errore! manca un parametro essenziale per il caricamento dello stand!");
     } else {
@@ -14,7 +10,7 @@
         $sql = "SELECT nome 
                 FROM stand
                 WHERE nome = '$stand_name'";
-        $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+        $ris = $conn->query($sql) or die("<p>Query fallita!".$conn->error."</p>");
         if ($ris->num_rows == 0) {
             // decidere che cosa fare
             die ("Stand non trovato!");
@@ -30,7 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stands: Jojo's Bizzare Adventures</title>
-    <link rel="stylesheet" href="..\css\stands_style.css">
+    <link rel="stylesheet" href="..\css\stand_ricerca_style.css">
 </head>
 
 <body>
@@ -48,92 +44,52 @@
                     <img src="../immagini/logo.png" alt="">
                 </div>
 
-                <div id="home_button"><a href="../index.html"><img src="../immagini/home.png" alt=""></a></div>
+                <div id="home_button"><a href="../index.php"><img src="../immagini/home.png" alt=""></a></div>
             </div>
 
             <div class="nav_stripe">
                 <div class="category_text"><p>Stands</p></div>
-                <!-- <div class="category_text"><p> > </p></div> -->
-                <!-- <div class="nav_button"><a><p>Jojo</p></a></div> -->
-                <!-- <div class="nav_button"><a><p>Trama</p></a></div> -->
-                <!-- <div class="nav_button"><a><p>Autore</p></a></div> -->
-                <!-- <div class="nav_button"><a><p>Guarda</p></a></div> -->
-                <!-- <div class="nav_button"><a><p>Parti</p></a></div> -->
-                <!-- <div class="donate_button"><a href="https://web.spaggiari.eu/home/app/default/login.php"><p>Dona</p><img src="../immagini/heart.png" alt=""></a></div> -->
             </div>
         </header>
 
+
+        <img src="" alt="">
         <main>
-            <img src="" alt="">
-            <div id="pb_banner">
-                <div id="pb_banner__left">
-                    <?php 
-                        $stand_name_lc = strtolower($stand_name);
-                        $stand_name_lc = str_replace(" ", "_", $stand_name_lc);
-                        $stand_name_lc = str_replace("\'", "", $stand_name_lc);
-                        $stand_name_lc = str_replace("'", "", $stand_name_lc);
-                        echo <<<EOD
-                            <div>
-                                <img src='../immagini/stand_img_$stand_name_lc.png' alt=''>                
-                            </div>
-                        EOD;
-                    ?>
-                    <img src="../immagini/fade_h.png" alt="">
-                </div>
-                <div id="pb_banner__right">
-                    <!-- <img src="../immagini/pb_logo.png" alt=""> -->
-                    <h2>
-                        <?php
-                            echo $stand_name;
-                        ?>
-                    </h2>
-                </div>
-            </div>
+            <?php
+                $stand_name_apostrofo = str_replace("*","'",$stand_name);
+                $stand_name_lowercase = strtolower($stand_name_apostrofo);
+                $stand_name_lowercase = str_replace(" ", "_", $stand_name_lowercase);
+                $stand_name_lowercase = str_replace("'", "", $stand_name_lowercase);
 
-            <div id="other_title">
-                <img src="../immagini/logo_english.png" alt="">
-                <h2><?php echo $stand_name; ?></h2>
-            </div>
+                echo "<h1><a href='#'>$stand_name_apostrofo</a></h1>";
 
-            <div id="plot">
-                <h2>
-                    <?php
-                        // $myfile = fopen("../testi/stand_$stand_name_lc.txt", "r") or die("Unable to open file!");
-                        // echo fread($myfile,filesize("../testi/stand_$stand_name_lc.txt"));
-                        // fclose($myfile);
-                    ?>
-                </h2>
+                echo <<<EOD
+                    <div id="tv">
+                        <div id="tv__img">
+                            <img src="../immagini/tv.webp" alt="" class="television">
+                            <img src="../immagini/video_$stand_name_lowercase.gif" class="gif">
+                        </div>
+                    </div>
+                EOD;
+
                 
-                <p>
-                    <?php
-                        // $myfile = fopen("../testi/user_$stand_name_lc.txt", "r") or die("Unable to open file!");
-                        // echo fread($myfile,filesize("../testi/user_$stand_name_lc.txt"));
-                        // fclose($myfile);
-                    ?>
-                </p>
-             
-            </div>
+                echo "<img src='../immagini/stand_img_$stand_name_lowercase.png' class='f_r'>";
+                echo "<img src='../immagini/user_img_$stand_name_lowercase.png' class='f_l'>";
 
-            <div id="search_engine">
-                <div>
-                    <?php 
-                        echo <<<EOD
-                            <div>
-                                <img src='../immagini/user_img_$stand_name_lc.png' alt=''>                
-                            </div>
-                        EOD;
-                    ?>
-                </div>
-                <div>
-                    <?php 
-                        echo <<<EOD
-                            <div>
-                                <img src='../immagini/video_$stand_name_lc.gif' alt=''>                
-                            </div>
-                        EOD;
-                    ?>
-                </div>
-            </div>
+                
+                $description_file = fopen("../data/stands_descriptions.txt", "r") or die("Unable to open file!");
+                $descriptions = fread($description_file,filesize("../data/stands_descriptions.txt"));
+                fclose($description_file);
+
+                $descriptions = explode("+", $descriptions);
+
+                foreach ($descriptions as $d){
+                    if (str_contains($d, $stand_name_apostrofo)){
+                        echo "<p>$d</p>";
+                        break;
+                    }
+                }
+            ?>
 
         </main>
 
@@ -142,3 +98,5 @@
         <footer>
             <p>Authors | F. Banani, L. Sambo</p>
         </footer>
+
+<body>

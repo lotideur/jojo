@@ -4,6 +4,7 @@
 <?php
     if (isset($_GET["search_input_stand_name"])) {$search_input_stand_name = $_GET["search_input_stand_name"];} else {$search_input_stand_name = "";}
     if (isset($_GET["search_input_stand_user"])) {$search_input_stand_user = $_GET["search_input_stand_user"];} else {$search_input_stand_user = "";}
+    if (isset($_GET["search_input_part"])) {$search_input_part = $_GET["search_input_part"];} else {$search_input_part = "";}
 ?>
 
 <head>
@@ -28,7 +29,7 @@
                     <img src="../immagini/logo.png" alt="">
                 </div>
 
-                <div id="home_button"><a href="../index.html"><img src="../immagini/home.png" alt=""></a></div>
+                <div id="home_button"><a href="../index.php"><img src="../immagini/home.png" alt=""></a></div>
             </div>
 
             <div class="nav_stripe">
@@ -87,6 +88,10 @@
                             <td><input type="text" id="user_name" name="search_input_stand_user" value="<?php echo $search_input_stand_user ?>"></td>
                         </tr>
                         <tr>
+                            <td><label for="part"><h2>Parte: </h2></label></td>
+                            <td><input type="text" id="part" name="search_input_part" value="<?php echo $search_input_part ?>"></td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="submit" value="Cerca" id="search_input_submit"></td>
                         </tr>
                     </table>
@@ -94,40 +99,48 @@
 
                 <div id="searched_stands">
                     <?php
-                        if (isset($_GET["search_input_stand_name"]) and isset($_GET["search_input_stand_user"])) {
+                        if (isset($_GET["search_input_stand_name"]) and isset($_GET["search_input_stand_user"]) and isset($_GET["search_input_part"])) {
                             require("../data/connessione_db.php");
                             $search_input_stand_name = $_GET["search_input_stand_name"];
                             $search_input_stand_user = $_GET["search_input_stand_user"];
+                            $search_input_part = $_GET["search_input_part"];
 
-                            $sql = "SELECT nome, portatore
+                            $sql = "SELECT nome, portatore, debutto
                                     FROM stand
                                     WHERE nome LIKE '%$search_input_stand_name%'
                                         AND portatore LIKE '%$search_input_stand_user%'";
 
-                            $search_ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                            $search_ris = $conn->query($sql) or die("<p>Query fallita!".$conn->error."</p>");
                             
                             if ($search_ris->num_rows == 0) {
                                 echo "<p>Stand non trovato.</p>";
                                 $conn->close();
                             } else {
                                 foreach($search_ris as $riga){
-                                    $stand_name = $riga["nome"];
-                                    $lc_stand_name = strtolower($stand_name);
-                                    $lc_stand_name = str_replace(" ", "_", $lc_stand_name);
-                                //     $titolo = $riga["titolo"];
-                                //     $copertina = $riga["copertina"];
-                                //     $nome = $riga["nome"];
-                                //     $cognome = $riga["cognome"];
-                
-                                    echo <<<EOD
-                                        <div class='searched_stands__card'>
-                                            <a href="stand_ricerca.php?nome=$stand_name"><img src='../immagini/stand_img_$lc_stand_name.png' alt=''></a>
-                                            <div class='searched_stands__card__tag'>
-                                                <h2>$stand_name</h2>
+                                    if ($search_input_part == "" OR $riga["debutto"] == $search_input_part){
+                                        $stand_name = $riga["nome"];
+                                        $stand_name_apostrofo = str_replace("*","'",$stand_name);
+                                        
+                                        $stand_name_lowercase = strtolower($stand_name_apostrofo);
+                                        $stand_name_lowercase = str_replace(" ", "_", $stand_name_lowercase);
+                                        $stand_name_lowercase = str_replace("'", "", $stand_name_lowercase);
+                                        // $titolo = $riga["titolo"];
+                                        // $copertina = $riga["copertina"];
+                                        // $nome = $riga["nome"];
+                                        // $cognome = $riga["cognome"];
+                                        
+                                        echo <<<EOD
+                                            <div class='searched_stands__card'>
+                                                <a href="stand_ricerca.php?nome=$stand_name"><img src='../immagini/stand_img_$stand_name_lowercase.png' alt=''></a>
+                                                <div class='searched_stands__card__tag'>
+                                                    <h2>$stand_name_apostrofo</h2>
+                                                    <p>../immagini/stand_img_$stand_name_lowercase.png</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    EOD;
+                                        EOD;
+                                    }
                                 }
+                            
                                 
                                 
                                 // session_start();
