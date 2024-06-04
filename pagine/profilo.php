@@ -89,7 +89,7 @@
             </div>
 
             <?php
-                $categorie = ["Dati personali", "Stand preferiti", "Logout", "Risultati quiz", "Classifica"];
+                $categorie = ["Dati personali", "Stand preferiti", "Risultati quiz", "Logout"];
 
                 foreach ($categorie as $c){
                     $c_lower = str_replace(" ", "_", strtolower($c));
@@ -120,6 +120,8 @@
                 require("profilo_dati_personali.php");
             }elseif ($categoria == "stand_preferiti"){
                 require("profilo_preferiti.php");
+            }elseif ($categoria == "risultati_quiz"){
+                require("profilo_quiz.php");
             }elseif ($categoria == "logout"){
                 require("profilo_logout.php");
             }
