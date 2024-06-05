@@ -42,12 +42,16 @@
                 $conn->query($sql) or die("<p>Query fallita".$conn->error."</p>");
                 
                 unset($_SESSION["num_risposte_corrette"]);
-
+                header("Location: profilo.php?categoria=risultati_quiz");
+            
             }elseif($_SESSION["quiz_index"] == 1){
-                $_SESSION["num_risposte_corrette"] = 0;
+                $_SESSION["num_risposte_corrette"] = 1;
             }
             if (isset($_GET["corretto"])){
                 $_SESSION["num_risposte_corrette"] += 1;
+                if ($_SESSION["num_risposte_corrette"] > 4){
+                    $_SESSION["num_risposte_corrette"] = 4;
+                }
             }
             header("Location: quiz.php");
         }

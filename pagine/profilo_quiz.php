@@ -27,19 +27,20 @@
             foreach($ris as $riga){
                 $righe[] = $riga;
             }
-            $righe = array_reverse($righe);
+            // $righe = array_reverse($righe);
 
+            $i = 0;
             echo "<div class='lista_quiz'>";
                 foreach($righe as $riga){
                     $punteggio = $riga["punteggio"];
                     $cod = $riga["cod"];
-                    $n = $cod."°";
+                    $n = ($ris->num_rows-$i)."°";
 
                     $color = ["rgb(255, 51, 0)", "rgb(255, 51, 0)", "rgb(255, 191, 0)", "rgb(136, 255, 0)", "rgb(162, 255, 0)"][$punteggio];
-                    $appena_svolto_txt = ($appena_svolto and $cod == 0) ? "(Quiz appena svolto)" : " ";
+                    $appena_svolto_txt = ($appena_svolto and $i == 0) ? "(Quiz appena svolto)" : " ";
 
                     echo "<div class='quiz_card' style='background-color: $color'><p>$n quiz. Domande corrette: $punteggio/4 $appena_svolto_txt</p><a class='quiz_card__img' href='?categoria=risultati_quiz&quiz_eliminato=$cod'><img src='../immagini/logout_icon.png'></a></div>";
-                    // $i += 1;
+                    $i += 1;
                 }
             echo "</div>";
 
