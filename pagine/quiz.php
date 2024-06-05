@@ -139,7 +139,12 @@
                                 WHERE cod = '$cod'";
                         $ris = $conn->query($sql)->fetch_assoc() or die("<p>Query fallita".$conn->error."</p>");
                         
-                        $answers = ["A-".$ris["risposta_vera"],"B-".$ris["risposta_falsa_1"],"C-".$ris["risposta_falsa_2"],"D-".$ris["risposta_falsa_3"]];
+                        $answers = [$ris["risposta_vera"],$ris["risposta_falsa_1"],$ris["risposta_falsa_2"],$ris["risposta_falsa_3"]];
+                        shuffle($answers);
+                        $answers[0] = "A-".$answers[0];
+                        $answers[1] = "B-".$answers[1];
+                        $answers[2] = "C-".$answers[2];
+                        $answers[3] = "D-".$answers[3];
                         foreach ($answers as $answer){
                             $ans_letter = explode("-", $answer)[0];
                             $ans_txt = explode("-", $answer)[1];
