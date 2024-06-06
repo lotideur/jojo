@@ -19,6 +19,58 @@
 CREATE DATABASE IF NOT EXISTS `stand` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `stand`;
 
+-- Dump della struttura di tabella stand.domanda_quiz
+CREATE TABLE IF NOT EXISTS `domanda_quiz` (
+  `cod` int(11) unsigned zerofill NOT NULL,
+  `domanda` char(50) NOT NULL,
+  `risposta_vera` char(50) NOT NULL,
+  `risposta_falsa_1` char(50) NOT NULL,
+  `risposta_falsa_2` char(50) NOT NULL,
+  `risposta_falsa_3` char(50) NOT NULL,
+  `risposta_falsa_4` char(50) NOT NULL,
+  PRIMARY KEY (`cod`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella stand.domanda_quiz: ~7 rows (circa)
+INSERT INTO `domanda_quiz` (`cod`, `domanda`, `risposta_vera`, `risposta_falsa_1`, `risposta_falsa_2`, `risposta_falsa_3`, `risposta_falsa_4`) VALUES
+	(00000000000, 'Quale fra questi è lo stand di DIO?', 'The World', 'Star Platinum', 'Chocolate Disco', 'In a Silent Way', 'Pearl Jam'),
+	(00000000001, 'Chi è Hayato Kawajiri?', 'Il vero figlio di Kosaku Kawajiri', 'Il vero figlio di Kira Yoshikage', 'Il fratellino di Josuke Higashikata', 'Non è mai specificato nella serie', 'Il portatore di Boy II Men'),
+	(00000000002, 'Come morì Dario Brando?', 'Avvelenato dal figlio', 'Vecchiaia', 'Ucciso da George Joestar', 'In un incidente stradale su una carrozza', 'Fu coinvolto nel naufragio di una nave da crociera'),
+	(00000000003, 'Chi è Danny per Johnny Joestar?', 'Il topolino a cui si è affezionato', 'Il fratello maggiore', 'Il cavallo con cui gareggia alla gara', 'Il cagnolino', 'Il maggiordomo in Inghilterra'),
+	(00000000004, 'Come si chiama la mamma di Josuke?', 'Tomoko', 'Tamako', 'Shoko', 'Misa', ''),
+	(00000000005, 'Qual è lo stand preferito di Luigi Sambo?', 'Survivor', 'Strength', 'The Lock', 'Tower of Gray', ''),
+	(00000000006, 'Qual è lo stand che riesce a camminare sulla piogg', 'Catch the Rainbow', 'Aqua Necklace', 'Limp Bizkit', 'Jumpin\' Jack Flash', '');
+
+-- Dump della struttura di tabella stand.preferiti
+CREATE TABLE IF NOT EXISTS `preferiti` (
+  `username` char(50) NOT NULL,
+  `stand` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella stand.preferiti: ~2 rows (circa)
+INSERT INTO `preferiti` (`username`, `stand`) VALUES
+	('fed', 'Star Platinum'),
+	('fed', 'The Lock');
+
+-- Dump della struttura di tabella stand.quiz
+CREATE TABLE IF NOT EXISTS `quiz` (
+  `cod` int(11) NOT NULL,
+  `punteggio` int(11) NOT NULL,
+  `data` char(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`cod`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella stand.quiz: ~0 rows (circa)
+
+-- Dump della struttura di tabella stand.quiz_fatti
+CREATE TABLE IF NOT EXISTS `quiz_fatti` (
+  `punteggio` int(11) NOT NULL DEFAULT 0,
+  `username` char(50) NOT NULL DEFAULT '0',
+  `cod` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella stand.quiz_fatti: ~0 rows (circa)
+
 -- Dump della struttura di tabella stand.stand
 CREATE TABLE IF NOT EXISTS `stand` (
   `nome` char(50) NOT NULL,
@@ -36,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `stand` (
   PRIMARY KEY (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella stand.stand: ~107 rows (circa)
+-- Dump dei dati della tabella stand.stand: ~113 rows (circa)
 INSERT INTO `stand` (`nome`, `portatore`, `potenza_distruttiva`, `velocità`, `raggio_d'azione`, `durezza`, `precisione`, `potenzialità`, `debutto`, `immagine_user`, `video`, `immagine_stand`) VALUES
 	('Achtung Baby', 'Shizuka Joestar', 'E', 'E', '0', 'A', 'E', 'A', '4', NULL, NULL, NULL),
 	('Aerosmith', 'Narancia Ghirga', 'B', 'B', 'B', 'C', 'E', 'C', '5', NULL, NULL, NULL),
@@ -63,7 +115,7 @@ INSERT INTO `stand` (`nome`, `portatore`, `potenza_distruttiva`, `velocità`, `r
 	('Dark Blue Moon', 'Imposter Captain Tennille', 'C', 'C', 'C', 'B', 'C', 'D', '3', NULL, NULL, NULL),
 	('Death Thirteen', 'Mannish Boy', 'C', 'C', 'E', 'B', 'D', 'B', '3', NULL, NULL, NULL),
 	('Diver Down', 'Narciso Anasui', 'A', 'A', 'E', 'C', 'B', 'B', '6', NULL, NULL, NULL),
-	('Dragon\'s Dream', 'Kenzou', '0', '0', '0', 'A', '0', '0', '6', NULL, NULL, NULL),
+	('Dragon*s Dream', 'Kenzou', '0', '0', '0', 'A', '0', '0', '6', NULL, NULL, NULL),
 	('Earth Wind and Fire', 'Mikitaka Hazekura', 'C', 'C', '0', 'A', 'C', 'C', '4', NULL, NULL, NULL),
 	('Ebony Devil', 'Devo the Cursed', 'D', 'D', 'A', 'B', 'D', 'B', '3', NULL, NULL, NULL),
 	('Echoes (ACT1)', 'Koichi Hirose', 'E', 'E', 'B', 'B', 'C', 'A', '4', NULL, NULL, NULL),
@@ -82,7 +134,7 @@ INSERT INTO `stand` (`nome`, `portatore`, `potenza_distruttiva`, `velocità`, `r
 	('Green, Green Grass of Home', 'The Green Baby', '?', '?', '?', '?', '?', '?', '6', NULL, NULL, NULL),
 	('Hanged Man', 'J. Geil', 'C', 'A', 'A', 'B', 'D', 'D', '3', NULL, NULL, NULL),
 	('Harvest', 'Shigekiyo "Shigechi" Yangu', 'E', 'B', 'A', 'A', 'E', 'C', '4', NULL, NULL, NULL),
-	('Heaven\'s Door', 'Rohan Kishibe', 'D', 'B', 'B', 'B', 'C', 'A', '4', NULL, NULL, NULL),
+	('Heaven*s Door', 'Rohan Kishibe', 'D', 'B', 'B', 'B', 'C', 'A', '4', NULL, NULL, NULL),
 	('Hermit Purple', 'Joseph Joestar', 'D', 'C', 'D', 'A', 'D', 'E', '3', NULL, NULL, NULL),
 	('Hierophant Green', 'Noriaki Kakyoin', 'C', 'B', 'A', 'B', 'C', 'D', '3', NULL, NULL, NULL),
 	('High Priestess', 'Midler', 'C', 'B', 'A', 'A', 'D', 'D', '3', NULL, NULL, NULL),
@@ -90,8 +142,8 @@ INSERT INTO `stand` (`nome`, `portatore`, `potenza_distruttiva`, `velocità`, `r
 	('Highway to Hell', 'Thunder McQueen', 'C', 'C', 'A', 'C', 'C', 'C', '6', NULL, NULL, NULL),
 	('Horus', 'Pet Shop', 'B', 'B', 'D', 'C', 'E', 'C', '3', NULL, NULL, NULL),
 	('Jail House Lock', 'Miuccia Miuller', '0', 'C', 'B', 'A', '0', '0', '6', NULL, NULL, NULL),
-	('Judgement', 'Cameo', 'B', 'B', 'C', 'B', 'D', 'D', '3', NULL, NULL, NULL),
-	('Jumpin\' Jack Flash', 'Lang Rangler', 'B', 'C', 'B', 'A', 'D', 'E', '6', NULL, NULL, NULL),
+	('Judgment', 'Cameo', 'B', 'B', 'C', 'B', 'D', 'D', '3', NULL, NULL, NULL),
+	('Jumpin* Jack Flash', 'Lang Rangler', 'B', 'C', 'B', 'A', 'D', 'E', '6', NULL, NULL, NULL),
 	('Justice', 'Enya the Hag', 'D', 'E', 'A', 'A', 'E', 'E', '3', NULL, NULL, NULL),
 	('Khnum', 'Oingo', 'E', 'E', 'E', 'A', 'E', 'E', '3', NULL, NULL, NULL),
 	('Killer Queen', 'Yoshikage Kira', 'A', 'B', 'D', 'B', 'B', 'A', '4', NULL, NULL, NULL),
@@ -103,7 +155,7 @@ INSERT INTO `stand` (`nome`, `portatore`, `potenza_distruttiva`, `velocità`, `r
 	('Love Deluxe', 'Yukako Yamagishi', 'B', 'B', 'C', 'A', 'E', 'B', '4', NULL, NULL, NULL),
 	('Lovers', 'Steely Dan', 'E', 'D', 'A', 'A', 'D', 'E', '3', NULL, NULL, NULL),
 	('Made in Heaven', 'Enrico Pucci', 'B', '∞', 'C', 'A', 'C', 'A', '6', NULL, NULL, NULL),
-	('Magician\'s Red', 'Muhammad Avdol', 'B', 'B', 'C', 'B', 'C', 'D', '3', NULL, NULL, NULL),
+	('Magician*s Red', 'Muhammad Avdol', 'B', 'B', 'C', 'B', 'C', 'D', '3', NULL, NULL, NULL),
 	('Man in the Mirror', 'Illuso', 'C', 'C', 'B', 'D', 'C', 'E', '5', NULL, NULL, NULL),
 	('Manhattan Transfer', 'Johngalli A.', 'E', 'E', 'A', 'A', 'A', 'C', '6', NULL, NULL, NULL),
 	('Marilyn Manson', 'Miraschon', 'E', 'A', 'A', 'A', 'A', 'C', '6', NULL, NULL, NULL),
@@ -162,11 +214,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella stand.user: ~0 rows (circa)
+-- Dump dei dati della tabella stand.user: ~3 rows (circa)
+INSERT INTO `user` (`username`, `password`, `nome`, `cognome`, `email`) VALUES
+	('asd', 'asd', 'asd', 'asd', 'asd@asd.com'),
+	('fahd', 'fahd', 'fahd', 'fahd', 'fahd'),
+	('fed', 'qwe', 'Fahd', 'Samb', 'fahd.banani@gmail.com'),
+	('fuigi', 'fuigi', 'fuigi', 'ilcanefuigi', 'ilcanefuigi@icloud.net'),
+	('luigi', 'luigi', 'Luigi', 'Sambus', 'luigi.sambo@gmail.com');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
-stand
