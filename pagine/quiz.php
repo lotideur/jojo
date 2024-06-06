@@ -66,9 +66,10 @@
             $_SESSION["appena_svolto"] = "";
             header("Location: profilo.php?categoria=risultati_quiz");
         }
-        // else{
-        //     header("Location: ../index.php");
-        // }
+        else{
+            $_SESSION["appena_svolto"] = "";
+            header("Location: profilo.php?categoria=risultati_quiz");
+        }
     }
     
     $index = $_SESSION["quiz_index"];
