@@ -33,12 +33,17 @@
             $_SESSION["quiz_index"] += 1;
             if ($_SESSION["quiz_index"] >= 4){
                 unset($_SESSION["quiz_index"]);
+
+                require("../data/connessione_db.php");
                 
+                $sql0 = "SELECT username FROM quiz_fatti";
+                $ris = $conn->query($sql0) or die("<p>Query fallita".$conn->error."</p>");
+                $num_quiz_fatti = $ris->num_rows;
+
                 $num = $_SESSION["num_risposte_corrette"];
                 
-                require("../data/connessione_db.php");
-                $sql = "INSERT INTO quiz_fatti (username, punteggio)
-                        VALUES ('$username', '$num')";
+                $sql = "INSERT INTO quiz_fatti (username, punteggio, cod)
+                        VALUES ('$username', '$num', '$num_quiz_fatti')";
                 $conn->query($sql) or die("<p>Query fallita".$conn->error."</p>");
                 
                 unset($_SESSION["num_risposte_corrette"]);
@@ -60,9 +65,10 @@
         if (isset($_SESSION["num_risposte_corrette"])){
             $_SESSION["appena_svolto"] = "";
             header("Location: profilo.php?categoria=risultati_quiz");
-        }else{
-            header("Location: ../index.php");
         }
+        // else{
+        //     header("Location: ../index.php");
+        // }
     }
     
     $index = $_SESSION["quiz_index"];

@@ -27,7 +27,7 @@
             foreach($ris as $riga){
                 $righe[] = $riga;
             }
-            // $righe = array_reverse($righe);
+            $righe = array_reverse($righe);
 
             $i = 0;
             echo "<div class='lista_quiz'>";
